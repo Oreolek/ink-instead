@@ -1,7 +1,8 @@
 -- FIXME clean up
 
-if not arg[1] and not (...) then error("Usage: `require` this file from a script or call `lua pink/pink.lua parse game.ink`") end
-local folderOfThisFile = arg[1] and string.sub(..., 1, string.len(arg[1]))==arg[1] and arg[0]:match("(.-)[^/\\]+$") or (...):match("(.-)[^%.]+$")
+-- if not arg[1] and not (...) then error("Usage: `require` this file from a script or call `lua pink/pink.lua parse game.ink`") end
+-- local folderOfThisFile = arg[1] and string.sub(..., 1, string.len(arg[1]))==arg[1] and arg[0]:match("(.-)[^/\\]+$") or (...):match("(.-)[^%.]+$")
+local folderOfThisFile = './pink/'
 local getParser = function () return require(folderOfThisFile .. 'parser') end
 local runtime = require(folderOfThisFile .. 'runtime')
 
@@ -79,10 +80,10 @@ end
 
 
 
-
+--[[
 if arg[1] == 'parse' and arg[2] then
   print(dump(parse(arg[2])))
 end
-
+]]
 
 return api
